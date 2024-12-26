@@ -39,11 +39,11 @@ export default function Home() {
           </div>
           <Calendar />
         </div>
-
+        {/* 
         <section className="accordions">
           <h2 className="accordions__title">Accordion</h2>
           <Accordion />
-        </section>
+        </section> */}
         {/* <section>
           <Chat />
         </section> */}
