@@ -1,7 +1,14 @@
 {
-  "name": "my_app",
-  "version": "0.1.0",
+  "name": "@jason21403019/my_app",
+  "version": "1.0.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jason21403019/my_app.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
