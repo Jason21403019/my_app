@@ -1,0 +1,58 @@
+.todo-list {
+  max-height: 170px;
+  overflow: scroll;
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $spacing-md;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    margin-bottom: $spacing-sm;
+    background-color: $bg-white;
+    margin-right: 0.25rem;
+  }
+
+  &__text {
+    margin-left: $spacing-md;
+    color: $text-color;
+
+    &--completed {
+      text-decoration: line-through;
+      color: lighten($text-color, 30%);
+    }
+  }
+
+  &__checkbox {
+    cursor: pointer;
+  }
+
+  &__delete {
+    color: $danger-color;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: $spacing-sm;
+
+    &:hover {
+      color: darken($danger-color, 10%);
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: $text-color;
+  border-radius: $border-radius;
+}
+::-webkit-scrollbar-track {
+  // background-color: $bg-white;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: darken($primary-color, 10%);
+}
+::-webkit-scrollbar-button {
+  display: none;
+}

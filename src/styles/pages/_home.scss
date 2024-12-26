@@ -1,0 +1,28 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.home {
+  &__container {
+    // border: 1px solid red;
+    max-width: 1000px;
+    padding: $spacing-xl;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: $spacing-xl;
+    color: $text-color;
+  }
+}
+.accordions {
+  max-width: 600px;
+  padding: $spacing-xl;
+  &__title {
+    color: $text-color;
+  }
+}
