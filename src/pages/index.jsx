@@ -24,6 +24,7 @@ export default function Home() {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
+  const add = (a, b) => a + b;
   return (
     <>
       <div className="container">
@@ -36,6 +37,9 @@ export default function Home() {
               onToggle={toggleTodo}
               onDelete={deleteTodo}
             />
+            <div>
+              <p style={{ color: "#f8f8f8" }}>2 + 3 = {add(2, 3)}</p>
+            </div>
           </div>
           <Calendar />
         </div>
