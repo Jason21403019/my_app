@@ -3,14 +3,41 @@ import Image from "next/image";
 
 export default function Navbar() {
   const [isActive, setIsActive] = react.useState(false);
+  const [lastScrollY, setLastScrollY] = react.useState(0);
+  const [showNavbar, setShowNavbar] = react.useState(true);
+
+  react.useEffect(() => {
+    const controlNavbar = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY < 20) {
+        setShowNavbar(true);
+        setLastScrollY(currentScrollY);
+        return;
+      }
+      if (Math.abs(currentScrollY - lastScrollY) < 10) {
+        return;
+      }
+
+      if (currentScrollY > lastScrollY) {
+        setShowNavbar(false);
+      } else {
+        setShowNavbar(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", controlNavbar);
+    return () => window.removeEventListener("scroll", controlNavbar);
+  }, [lastScrollY]);
 
   const toggleActive = () => {
     setIsActive(!isActive);
-    // console.log("you clicked me");
   };
 
   return (
-    <nav className="nav">
+    <nav className={`nav ${showNavbar ? "nav--visible" : "nav--hidden"}`}>
       <div className="nav__logo">
         <Image
           className="nav__img"
