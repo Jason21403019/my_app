@@ -2,19 +2,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 48px;
+  padding-top: 108px;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1680px;
   margin: 0 auto;
-  height: 200vh;
+  // height: 200vh;
 }
 
 .home {
   &__container {
     // border: 1px solid red;
-    max-width: 1000px;
+    max-width: 1680px;
     padding: 16px;
     display: flex;
     justify-content: space-between;

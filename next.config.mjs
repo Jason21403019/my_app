@@ -4,6 +4,9 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  images: {
+    domains: ["source.unsplash.com", "aceternity.com"],
+  },
 };
 
 export default nextConfig;
