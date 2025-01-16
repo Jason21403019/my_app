@@ -2,15 +2,61 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 export default function Navbar() {
-  const [isActive, setIsActive] = react.useState(false);
+  const [isActive, setIsActive] = useState(false);
+  const [menuState, setMenuState] = useState("");
+  const [isScrolled, setIsScrolled] = useState(false);
+  const navRef = useRef(null);
 
-  const toggleActive = () => {
-    setIsActive(!isActive);
-    // console.log("you clicked me");
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  const toggleMenu = () => {
+    if (!isActive) {
+      setIsActive(true);
+      setMenuState("show");
+    } else {
+      setIsActive(false);
+      setMenuState("hiding");
+    }
   };
+  const handleTransitionEnd = () => {
+    if (menuState === "hiding") {
+      setMenuState("");
+    }
+  };
+  const handleNavLinkClick = () => {
+    setIsActive(false);
+    setMenuState("hiding");
+  };
+  const handleClickOutside = (e) => {
+    if (
+      navRef.current &&
+      !navRef.current.contains(e.target) &&
+      !e.target.closest(".nav__hamburgers")
+    ) {
+      setIsActive(false);
+      setMenuState("hiding");
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside, true);
+    return () => {
+      document.removeEventListener("click", handleClickOutside, true);
+    };
+  }, []);
 
   return (
-    <nav className="nav">
+    <nav className={`nav ${isScrolled ? "scrolled" : ""}`}>
       <div className="nav__logo">
         <Image
           className="nav__img"

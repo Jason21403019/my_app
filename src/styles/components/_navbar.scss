@@ -2,18 +2,19 @@
   // border: 1px solid red;
   max-width: 1680;
   height: 80px;
-  width: 100%;
-  margin: 0 16px;
+  width: calc(100% - 32px);
+  left: 16px;
+  right: 16px;
+  margin: 20px auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  position: sticky;
-  border-radius: 16px;
-  background-color: rgb(219, 219, 219, 0.9);
-  padding: 20px 12px;
-  backdrop-filter: blur(13px);
+  position: fixed;
+  border-radius: 8px;
+  padding: 20px 20px;
   z-index: 100;
   top: 0;
+  transition: all 0.4s;
   &__logo {
     padding-top: 12px;
     z-index: 1;
@@ -64,7 +65,7 @@
   &__hamburgers {
     display: none;
     flex-direction: column;
-    align-items: end;
+    align-items: center;
     cursor: pointer;
     border: 2px solid transparent;
 
@@ -150,15 +151,5 @@
     &__hamburgers {
       display: flex;
     }
-  }
-  &--visible {
-    opacity: 1;
-    visibility: visible;
-  }
-  &--hidden {
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.5s;
-    transform: translateY(-20px);
   }
 }
